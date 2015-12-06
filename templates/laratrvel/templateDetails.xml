@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.7//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.7/template-install.dtd">
+<extension version="2.5" type="template" client="site" method="upgrade">
+    <name>Laratrvel</name>
+    <version>1.0.0</version>
+    <creationDate>2015-12-01</creationDate>
+    <author>Laratrvel</author>
+    <authorEmail>laratrvel@163.com</authorEmail>
+    <authorUrl>http://www.zade.xyz</authorUrl>
+    <copyright>Copyright (C)</copyright>
+    <license>laratrvel</license>
+    <description><![CDATA[<h1>Laratrvel Template Powered By Lratrvel</h1>]]></description>
+    <files>
+        <filename>index.php</filename>
+        <filename>templateDetails.xml</filename>
+        <folder>css</folder>
+        <folder>html</folder>
+        <folder>images</folder>
+        <folder>js</folder>
+        <folder>less</folder>
+    </files>
+    <positions>
+        <position settings="">top</position>
+        <position settings="">navigation</position>
+        <position settings="">search</position>
+        <position settings="">position-1</position>
+        <position settings="">position-2</position>
+        <position>picturesShow</position>
+        <position settings="">position-3</position>
+        <position>position-4</position>
+        <position>position-5</position>
+        <position>position-6</position>
+        <position>position-7</position>
+        <position>position-8</position>
+        <position>position-9</position>
+        <position>position-10</position>
+        <position>position-11</position>
+        <position>position-12</position>
+        <position>position-13</position>
+        <position>position-14</position>
+        <position>position-15</position>
+        <position settings="">footer</position>
+    </positions>
+    
+    <!--<languages folder="language">-->
+        <!--<language tag="en-GB">en-GB/en-GB.tpl_laratrvel.ini</language>-->
+        <!--<language tag="en-GB">en-GB/en-GB.tpl_laratrvel.sys.ini</language>-->
+    <!--</languages>-->
+    <config>
+        <fields name="params" addfieldpath="/templates/yoo_lykka/warp/systems/joomla/config/elements">
+            <fieldset
+                    name="navbar"
+                    label="TPL_LARATRVEL_FIELD_NAVBAR_LABEL">
+                <field
+                        name="nav-menu"
+                        type="menu"
+                        label="TPL_LARATRVEL_FIELD_NAVBAR_MENU_SELECT_LABEL"
+                        description=""
+                        default="Main Menu"
+                />
+                <field
+                        name="nav-menu-color"
+                        type="color"
+                        label="TPL_LARATRVEL_FIELD_NAVBAR_MENU_WIDTH_LABEL"
+                        description=""
+                />
+                <field
+                        name="nav-menu-text-color"
+                        type="color"
+                        label="TPL_LARATRVEL_FIELD_NAVBAR_MENU_WIDTH_LABEL"
+                        description=""
+                />
+                <field
+                        name="siteBgColor"
+                        type="color"
+                        label="TPL_LARATRVEL_FIELD_SITE_BGCOLOR"
+                        description=""/>
+                <field
+                        name="templateColor"
+                        type="color"
+                        label="TPL_LARATRVEL_FIELD_TPLCOLOR"
+                        description=""/>
+            </fieldset>
+            <!--图片栅格展示选项-->
+            <fieldset
+                    name="picturegrid"
+                    label="TPL_LARATRVEL_FIELD_PICTUREGRID_LABEL">
+                <!--是否展示-->
+                <field
+                        name="is-picturegrid-show"
+                        type="list"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_ISPICTURE_LABEL"
+                        description=""
+                        default="0">
+                        <option value="1">TPL_LARATRVEL_IS_SHOW_TRUW</option>
+                        <option value="0">TPL_LARATRVEL_IS_SHOW_FALSE</option>
+                </field>
+                <!--需要展示行数-->
+                <field
+                        name="row-picturegrid-num"
+                        type="integer"
+                        label="TPL_LARATRVEL_FIELD_PICTUREDRID_ROW_LABEL"
+                        description=""
+                        first="1"
+                        last="4"
+                        step="1" />
+                <!--每一行的列数-->
+                <field
+                        name="col-picturegrid-num"
+                        type="list"
+                        label="TPL_LARATRVEL_FIELD_PICTUREDRID_COL_LABEL"
+                        description=""
+                >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                </field>
+                <field
+                        name="picturefrid-1"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-1"
+                        description=""
+                        />
+                <field
+                        name="picturefrid-2"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-2"
+                        description=""
+                        />
+                <field
+                        name="picturefrid-3"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-3"
+                        description=""
+                        />
+                <field
+                        name="picturefrid-4"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-4"
+                        description=""
+                        />
+                <field
+                        name="picturefrid-5"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-5"
+                        description=""
+                        />
+                <field
+                        name="picturefrid-6"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-6"
+                        description=""
+                        />
+                <field
+                        name="picturefrid-7"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-7"
+                        description=""
+                        />
+                <field
+                        name="picturefrid-8"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-8"
+                        description=""
+                        />
+                <field
+                        name="picturefrid-9"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-9"
+                        description=""
+                        />
+                <field
+                        name="picturefrid-10"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-10"
+                        description=""
+                        />
+                <field
+                        name="picturefrid-11"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-11"
+                        description=""
+                        />
+                <field
+                        name="picturefrid-12"
+                        type="media"
+                        label="TPL_LARATRVEL_FIELD_PICTUREGRID_PIC-12"
+                        description=""
+                        />
+        </fieldset>
+
+        </fields>
+    </config>
+</extension>

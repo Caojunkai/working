@@ -1,0 +1,44 @@
+
+.navbar-brand{
+    font-size: 30px;
+}
+.navbar-collapse{
+    font-size: 20px;
+}
+.navbar{
+    font-family: 微软雅黑,"Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: none;
+    margin-bottom: 0;
+}
+
+.navigation-bar{
+    display: none;
+}
+.top-floor{
+    text-align: center;
+}
+.sec-floor:after{
+    margin-top: -17px;
+}
+.sec-floor:before{
+    margin-bottom: -1px;
+}
+.component-floor {
+    padding: inherit;
+    text-align: center;
+}
+.pictureGrid .row:nth-child(1){
+    margin-left: -14px;
+    margin-top: 3px;
+}
+.pictureGrid .row:nth-child(2),.pictureGrid .row:nth-child(3),.pictureGrid .row:nth-child(4),.pictureGrid .row:nth-child(5),.pictureGrid .row:nth-child(6),.pictureGrid .row:nth-child(7),.pictureGrid .row:nth-child(8),.pictureGrid .row:nth-child(9){
+    margin-top: 6px;
+    margin-left: -15px;
+}
+.pictureGrid .row > div{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.picturesShowModule{
+    display: none;
+}
