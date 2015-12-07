@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.2.0" method="upgrade">
+    <name>sourcemanagement</name>
+    <creationDate>2015-12</creationDate>
+    <author>Laratrevl</author>
+    <authorEmail>laratrvel@163.com</authorEmail>
+    <copyright>Copyright Info</copyright>
+    <license>License Info</license>
+    <version>1.0.0</version>
+    <description>Topic Component</description>
+    <administration>
+
+    </administration>
+        <files folder="site">
+            <filename>sourcemanagement.php</filename>
+            <folder>sql</folder>
+            <folder>controllers</folder>
+            <folder>models</folder>
+            <folder>views</folder>
+            <filename>controller.php</filename>
+        </files>
+</extension>
