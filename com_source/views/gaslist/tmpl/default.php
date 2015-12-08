@@ -20,11 +20,10 @@ $listDirn      = $this->escape($this->state->get('list.direction'));
 			?>
 		</div>
 	</div>
-	<button value="add" class="btn btn-primary btn-success"><span class="icon-new"></span>新建</button>
-	<input type="submit" name="edit" value="编辑" class="btn">
-	<input type="hidden" name="task" value="">
-	<button value="delete" class="btn btn-danger"><span class="icon-delete"></span>删除</button>
-
+	<button type="submit" name="submit" value="add" class="btn btn-primary btn-success"><span class="icon-new"></span>新建</button>
+	<button type="submit" name="submit" value="edit" class="btn btn-warning"><span class="icon-edit"></span>编辑</button>
+	<button type="submit" name="submit" value="delete" class="btn btn-danger"><span class="icon-delete"></span>删除</button>
+	<input type="hidden" name="task" value="gas.manage">
 <table class="table table-striped table-hover">
 	<thead>
 	<tr>

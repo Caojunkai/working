@@ -3,7 +3,7 @@
     <fieldset>
         <field
                 name="id"
-                type="text"
+                type="number"
                 label="编号"
                 size="40"
                 class="inputbox"

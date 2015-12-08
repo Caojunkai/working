@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die;
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_source&task=gas.save&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" role="form">
+<form action="<?php echo JRoute::_('index.php?option=com_source&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" role="form">
 <div class="form-horizontal">
     <fieldset class="adminform">
           <legend>详细信息</legend>
@@ -18,6 +18,7 @@ defined('_JEXEC') or die;
 	</fieldset>
 </div>
 	<button type="submit" class="btn btn-default btn-primary" style="margin-left: 200px;margin-right: 30px"><span class="icon-save"></span>提交</button>
+	<input type="hidden" name="task" value="gas.save">
 	<a href="index.php?option=com_source&view=gaslist">	<button type="button" class="btn"><span class="icon-cancel"></span>取消</button>
 	</a>
 </form>

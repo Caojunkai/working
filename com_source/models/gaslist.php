@@ -25,7 +25,7 @@ class SourceModelGasList extends JModelList{
 
 		// Create the base select statement.
 		$query->select('*')
-			->from($db->quoteName('action_gasmanagement'));
+			->from($db->quoteName('#__gasmanagement'));
 
 		// Filter: like / search
 		$search = $this->getState('filter.search');

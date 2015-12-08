@@ -1,7 +1,15 @@
 <?php
 defined('_JEXEC') or die;
 
+/**
+ * Class SourceModelGas
+ */
 class SourceModelGas extends JModelAdmin{
+	/**
+	 * @param array $data
+	 * @param bool|TRUE $loadData
+	 * @return bool|mixed
+     */
 	public function getForm($data = array(), $loadData = TRUE)
 	{
 		$form = $this->loadForm(
@@ -19,6 +27,10 @@ class SourceModelGas extends JModelAdmin{
 		return $form;
 	}
 
+	/**
+	 * @return array|mixed|object
+	 * @throws Exception
+     */
 	public function loadFormData()
 	{
 		$dada = JFactory::getApplication()->getUserState(
@@ -32,6 +44,11 @@ class SourceModelGas extends JModelAdmin{
 		}
 	}
 
+	/**
+	 * @param null $pk
+	 * @return array|mixed|object
+	 * @throws Exception
+     */
 	public function getItem($pk = NULL)
 	{
 		$id = JFactory::getApplication()->input->get('id',NULL,'INT');
@@ -49,6 +66,7 @@ class SourceModelGas extends JModelAdmin{
 			$item =  JArrayHelper::toObject($item, 'JObject');
 			return $item;
 		}else{
+			$item = array('id'=>'','name'=>'','brand'=>'','standard'=>'');
 			$item = JArrayHelper::toObject($item, 'JObject');
 			return $item;
 
@@ -56,6 +74,11 @@ class SourceModelGas extends JModelAdmin{
 	}
 
 
+	/**
+	 * @param array $data
+	 * @return mixed
+	 * @throws Exception
+     */
 	public function save($data)
 	{
 		$id = JFactory::getApplication()->input->get('id',NULL,'INT');
@@ -71,6 +94,35 @@ class SourceModelGas extends JModelAdmin{
 				->set($fields)
 				->where($db->quoteName('a.id')."=".$db->quote($id));
 		$db->setQuery($query);
+		return $db->execute();
+	}
+
+	/**
+	 * @param $data 从form中获取到的数据
+	 * @return bool true or false
+	 * 添加信息是调用的方法
+     */
+	public function add($data){
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(TRUE);
+		$columns = array('id','name','brand','standard');
+		$values = $db->quote($data);
+		$query->insert($db->quoteName('#__gasmanagement'))
+			  ->columns($db->quoteName($columns))
+			  ->values(implode(',',$values));
+		$db->setQuery($query);
+		return $db->execute();
+	}
+
+	public function delete(&$pks){
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$pks = $db->quote($pks);
+		$conditions = $db->quoteName('id')." IN (".implode(',',$pks).")";
+		$query->delete($db->quoteName('#__gasmanagement'))
+			->where($conditions);
+		$db->setQuery($query);
+		$this->cleanCache();
 		return $db->execute();
 	}
 }
