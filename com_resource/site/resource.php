@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die;
 
-$controller = JControllerLegacy::getInstance('Source');
+$controller = JControllerLegacy::getInstance('Resource');
 
 $input = JFactory::getApplication()->input;
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.2.0" method="upgrade">
+    <name>COM_RESOURCE</name>
+    <creationDate>2015-12</creationDate>
+    <author>Laratrevl</author>
+    <authorEmail>laratrvel@163.com</authorEmail>
+    <copyright>Copyright Info</copyright>
+    <license>License Info</license>
+    <version>1.0.0</version>
+    <description>资源管理组件</description>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <administration>
+        <files folder="admin">
+            <folder>sql</folder>
+            <folder>language</folder>
+        </files>
+        <languages folder="admin/language">
+            <language tag="zh-CN">zh-CN/zh-CN.com_resource.ini</language>
+            <language tag="zh-CN">zh-CN/zh-CN.com_resource.sys.ini</language>
+        </languages>
+    </administration>
+        <files folder="site">
+            <filename>resource.php</filename>
+            <folder>controllers</folder>
+            <folder>models</folder>
+            <folder>views</folder>
+            <filename>controller.php</filename>
+        </files>
+
+</extension>

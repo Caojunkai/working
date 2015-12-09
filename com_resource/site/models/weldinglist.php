@@ -1,16 +1,17 @@
 <?php
 defined('_JEXEC') or die;
 
-class SourceModelGasList extends JModelList{
+class ResourceModelWeldingList extends JModelList{
 
 	public function __construct(array $config)
 	{
 		if(empty($config['filter_fields'])){
 			$config['filter_fields'] = array(
-				'id',
 				'name',
-				'standard',
-				'brand'
+				'brand',
+				'diameter',
+				'density',
+				'number'
 			);
 
 		}
@@ -25,7 +26,7 @@ class SourceModelGasList extends JModelList{
 
 		// Create the base select statement.
 		$query->select('*')
-			->from($db->quoteName('#__gasmanagement'));
+			->from($db->quoteName('#__weldingmanagement'));
 
 		// Filter: like / search
 		$search = $this->getState('filter.search');
@@ -47,3 +48,4 @@ class SourceModelGasList extends JModelList{
 	}
 
 }
+

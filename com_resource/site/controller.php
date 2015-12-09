@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die;
 
-class SourceController extends JControllerLegacy{
+class ResourceController extends JControllerLegacy{
 
 	protected $default_view = 'gaslist';
 

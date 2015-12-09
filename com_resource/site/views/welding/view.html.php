@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die;
 
-class SourceViewGas extends JViewLegacy{
+class ResourceViewWelding extends JViewLegacy{
 	protected $form = null;
 
 	public function display($tpl = null)

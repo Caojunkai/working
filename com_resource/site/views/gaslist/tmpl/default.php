@@ -1,14 +1,12 @@
 <?php
 defined('_JEXEC') or die;
 JHtml::_('formbehavior.chosen', 'select');
-$doc = JFactory::getDocument();
-$doc->addScript('media/system/js/core.js');
 $listOrder     = $this->escape($this->state->get('list.ordering'));
 $listDirn      = $this->escape($this->state->get('list.direction'));
 ?>
 
 
-<form action="index.php?option=com_source&view=gaslist" method="post" id="adminForm" name="adminForm">
+<form action="index.php?option=com_resource&view=gaslist" method="post" id="adminForm" name="adminForm">
 	<div class="row-fluid">
 		<div class="span6">
 			<h3>气体管理列表</h3>
@@ -31,17 +29,17 @@ $listDirn      = $this->escape($this->state->get('list.direction'));
 		<th width="3%">
 			<input type="checkbox" name="toggle" value="" onclick="Joomla.checkAll(this)" />
 		</th>
-		<th width="15%">
-			<?php echo JHtml::_('grid.sort', 'id', 'id', $listDirn, $listOrder);?>
+		<th width="20%">
+			<?php echo JHtml::_('grid.sort', '编号', 'number', $listDirn, $listOrder);?>
+		</th>
+		<th width="25%">
+			<?php echo JHtml::_('grid.sort', '名称', 'name', $listDirn, $listOrder);?>
 		</th>
 		<th width="30%">
-			<?php echo JHtml::_('grid.sort', 'name', 'name', $listDirn, $listOrder);?>
-		</th>
-		<th width="30%">
-			<?php echo JHtml::_('grid.sort', 'standard', 'standar', $listDirn, $listOrder); ?>
+			<?php echo JHtml::_('grid.sort', '规格', 'standard', $listDirn, $listOrder); ?>
 		</th>
 		<th width="20%">
-			<?php echo JHtml::_('grid.sort', 'brand', 'brand', $listDirn, $listOrder); ?>
+			<?php echo JHtml::_('grid.sort', '牌号', 'brand', $listDirn, $listOrder); ?>
 		</th>
 	</tr>
 	</thead>
@@ -55,7 +53,7 @@ $listDirn      = $this->escape($this->state->get('list.direction'));
 	<tbody>
 	<?php if (!empty($this->items)) : ?>
 		<?php foreach ($this->items as $i => $row) :
-			$link = JRoute::_('index.php?option=com_source&view=gas&id=' . $row->id);
+			$link = JRoute::_('index.php?option=com_resource&view=gas&id=' . $row->id);
 			?>
 			<tr>
 				<td>
@@ -66,10 +64,12 @@ $listDirn      = $this->escape($this->state->get('list.direction'));
 					<?php echo JHtml::_('grid.id', $i, $row->id); ?>
 				</td>
 				<td align="center">
-					<?php echo $row->id; ?>
+					<a href="<?php echo $link; ?>" title="<?php echo JText::_('显示详情'); ?>">
+						<?php echo $row->number; ?>
+					</a>
 				</td>
 				<td>
-					<a href="<?php echo $link; ?>" title="<?php echo JText::_(''); ?>">
+					<a href="<?php echo $link; ?>" title="<?php echo JText::_('显示详情'); ?>">
 						<?php echo $row->name; ?>
 					</a>
 				</td>

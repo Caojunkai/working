@@ -4,7 +4,7 @@ defined('_JEXEC') or die;
 /**
  * Class SourceModelGas
  */
-class SourceModelGas extends JModelAdmin{
+class ResourceModelGas extends JModelAdmin{
 	/**
 	 * @param array $data
 	 * @param bool|TRUE $loadData
@@ -13,7 +13,7 @@ class SourceModelGas extends JModelAdmin{
 	public function getForm($data = array(), $loadData = TRUE)
 	{
 		$form = $this->loadForm(
-			'com_source.gas',
+			'com_resource.gas',
 			'gas',
 			array(
 				'control' => 'jform',
@@ -34,7 +34,7 @@ class SourceModelGas extends JModelAdmin{
 	public function loadFormData()
 	{
 		$dada = JFactory::getApplication()->getUserState(
-				'com_source.edit.gas.data',
+				'com_resource.edit.gas.data',
 				array()
 		);
 		if (empty($dada)){
@@ -52,6 +52,7 @@ class SourceModelGas extends JModelAdmin{
 	public function getItem($pk = NULL)
 	{
 		$id = JFactory::getApplication()->input->get('id',NULL,'INT');
+		//判断$id 是否存在 存在调用数据库 不存在为$item 赋空值
 		if ($id){
 			$db = JFactory::getDbo();
 			$query = $db->getQuery(true);
@@ -59,11 +60,16 @@ class SourceModelGas extends JModelAdmin{
 				->from($db->quoteName('#__gasmanagement'))
 				->where($db->quoteName('id')."=".$db->quote($id));
 			$db->setQuery($query);
-			$item = $db->loadAssoc();
+			try{
+				$item = $db->loadObject();
+			}
+			catch(Exception $e){
+				$this->setError($e->getMessage());
+			}
 			if(!$item){
 				$item = array('id'=>'','name'=>'','brand'=>'','standard'=>'');
+				$item = JArrayHelper::toObject($item, 'JObject');
 			}
-			$item =  JArrayHelper::toObject($item, 'JObject');
 			return $item;
 		}else{
 			$item = array('id'=>'','name'=>'','brand'=>'','standard'=>'');
@@ -85,7 +91,7 @@ class SourceModelGas extends JModelAdmin{
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
 		$fields = array(
-				$db->quoteName("a.id").'='.$db->quote($data['id']),
+				$db->quoteName("a.number").'='.$db->quote($data['number']),
 				$db->quoteName("a.name").'='.$db->quote($data['name']),
 				$db->quoteName("a.brand").'='.$db->quote($data['brand']),
 				$db->quoteName("a.standard").'='.$db->quote($data['standard']),
@@ -94,7 +100,11 @@ class SourceModelGas extends JModelAdmin{
 				->set($fields)
 				->where($db->quoteName('a.id')."=".$db->quote($id));
 		$db->setQuery($query);
-		return $db->execute();
+		try{
+			return $db->execute();
+		}catch(Exception $e){
+			$this->setError($e->getMessage());
+		}
 	}
 
 	/**
@@ -105,13 +115,17 @@ class SourceModelGas extends JModelAdmin{
 	public function add($data){
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(TRUE);
-		$columns = array('id','name','brand','standard');
+		$columns = array('number','name','brand','standard');
 		$values = $db->quote($data);
 		$query->insert($db->quoteName('#__gasmanagement'))
 			  ->columns($db->quoteName($columns))
 			  ->values(implode(',',$values));
 		$db->setQuery($query);
-		return $db->execute();
+		try{
+			return $db->execute();
+		}catch(Exception $e){
+			$this->setError($e->getMessage());
+		}
 	}
 
 	public function delete(&$pks){
@@ -123,6 +137,10 @@ class SourceModelGas extends JModelAdmin{
 			->where($conditions);
 		$db->setQuery($query);
 		$this->cleanCache();
-		return $db->execute();
+		try{
+			return $db->execute();
+		}catch(Exception $e){
+			$this->setError($e->getMessage());
+		}
 	}
 }

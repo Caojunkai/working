@@ -1,15 +1,20 @@
 <?php
 defined('_JEXEC') or die;
 
-class SourceControllerGas extends JControllerForm{
+/**
+ * Class ResourceControllerGas
+ */
+class ResourceControllerGas extends JControllerForm{
 
+	/**
+	 * @param null $key
+	 * @param null $urlVar
+	 * @return bool
+	 * 点击编辑按钮是调用此方法
+	 */
 	public function edit($key = null, $urlVar = null)
 	{
-		$app   = JFactory::getApplication();
-		$model = $this->getModel();
 		$cid   = $this->input->post->get('cid', array(), 'array');
-		$context = "$this->option.edit.$this->context";
-
 		// Determine the name of the primary key for the data.
 		if (empty($key))
 		{
@@ -27,7 +32,7 @@ class SourceControllerGas extends JControllerForm{
 
 		if (!$this->allowEdit(array($key => $recordId), $key))
 		{
-			$this->setError(JText::_('JLIB_APPLICATION_ERROR_EDIT_NOT_PERMITTED'));
+			$this->setError(JText::_('没有权限'));
 			$this->setMessage($this->getError(), 'error');
 
 			$this->setRedirect(
@@ -47,6 +52,13 @@ class SourceControllerGas extends JControllerForm{
 
 	}
 
+	/**
+	 * @param null $key
+	 * @param null $urlVar
+	 * @return bool
+	 * @throws Exception
+	 * 点击保存时调用方法
+	 */
 	public function save($key = null, $urlVar = null){
 		$app   = JFactory::getApplication();
 		$model = $this->getModel();
@@ -62,12 +74,10 @@ class SourceControllerGas extends JControllerForm{
 			$urlVar = $key;
 		}
 		$recordId = (int) (count($cid) ? $cid[0] : $this->input->getInt($urlVar));
-
-
 		$data = $this->input->post->get('jform',array(),'array');
 		if (!$this->allowEdit(array($key => $recordId), $key))
 		{
-			$this->setError(JText::_('JLIB_APPLICATION_ERROR_EDIT_NOT_PERMITTED'));
+			$this->setError(JText::_('没有权限'));
 			$this->setMessage($this->getError(), 'error');
 
 			$this->setRedirect(
@@ -79,11 +89,13 @@ class SourceControllerGas extends JControllerForm{
 
 			return false;
 		}
+		//判断是否存在id 如果存在调用save 不存在调用add
 		if($id){
 			$result = $model->save($data);
 		}else{
 			$result = $model->add($data);
 		}
+		//判断是否执行成功
 		if($result){
 			$this->setRedirect(
 					'index.php?option=' . $this->option . '&view=gaslist'
@@ -103,10 +115,14 @@ class SourceControllerGas extends JControllerForm{
 		}
 	}
 
-	public function delete(){
-		$app   = JFactory::getApplication();
+	/**
+	 * @param null $key
+	 * @return bool
+	 * @throws Exception
+	 * 删除时调用方法
+	 */
+	public function delete($key = NULL){
 		$model = $this->getModel();
-		$id = $app->input->get('id',null,'INT');
 		$cid   = $this->input->post->get('cid', array(), 'array');
 		if (empty($key))
 		{
@@ -118,9 +134,10 @@ class SourceControllerGas extends JControllerForm{
 			$urlVar = $key;
 		}
 		$recordId = (int) (count($cid) ? $cid[0] : $this->input->getInt($urlVar));
+		//判断是否登录 是否允许修改
 		if (!$this->allowEdit(array($key => $recordId), $key))
 		{
-			$this->setError(JText::_('JLIB_APPLICATION_ERROR_EDIT_NOT_PERMITTED'));
+			$this->setError(JText::_('没有权限'));
 			$this->setMessage($this->getError(), 'error');
 
 			$this->setRedirect(
@@ -147,8 +164,11 @@ class SourceControllerGas extends JControllerForm{
 
 	}
 
+	/**
+	 *接收表单传递的参数，判断执行什么操作
+	 */
 	public function manage(){
-		switch ($_POST['submit']){
+		switch ($this->input->post->get('submit','','string')){
 			case 'edit' :
 				$this->edit('id');
 				break;
@@ -156,6 +176,7 @@ class SourceControllerGas extends JControllerForm{
 				$this->delete('id');
 				break;
 			case 'add' :
+
 				$this->setRedirect(
 					JRoute::_('index.php?option=' . $this->option . '&view=' . $this->view_item, false)
 				);

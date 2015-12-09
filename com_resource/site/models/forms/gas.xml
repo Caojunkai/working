@@ -2,8 +2,8 @@
 <form>
     <fieldset>
         <field
-                name="id"
-                type="number"
+                name="number"
+                type="text"
                 label="编号"
                 size="40"
                 class="inputbox"
