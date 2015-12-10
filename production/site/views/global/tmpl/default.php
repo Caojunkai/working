@@ -35,44 +35,30 @@ $doc->addScript('media/com_production/js/main.js');
 			<button class="but but-work">3车间</button>
 			<button class="but but-work">3车间</button>
 			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-			<button class="but but-work">3车间</button>
-
+			<button class="but but-work ">3车间</button>
+			<button class="but but-work ">3车间</button>
+			<button class="but but-work ">3车间</button>
+			<button class="but but-work ">3车间</button>
+			<button class="but but-work ">3车间</button>
+			<button class="but but-work ">3车间</button>
+			<button class="but but-work ">3车间</button>
+			<button class="but but-work ">3车间</button>
+			<button class="but but-work ">3车间</button>
+			<button class="but but-work ">3车间</button>
 
 		</div>
 	 	<hr class="hr" /><hr class="hr" />
+		<div class="detail">
+			<span class="sp warning sp-1">sdasdasdasdsdaad</span>
+			<span class="sp error sp-2">212</span>
+			<span class="sp off">212</span>
+			<span class="sp normal">212</span>
+			<span class="sp">212</span>
+		</div>
 </div>
 <div class="maincontent">
-	<iframe id="iframepage" src="http://arcticfox.sinaapp.com/admin" frameborder="0"  scrolling="auto" ></iframe>
+	<iframe id="iframepage" src="http://arcticfox.sinaapp.com/admin" frameborder="0"  scrolling="auto"></iframe>
 </div>
+<script>
+
+</script>

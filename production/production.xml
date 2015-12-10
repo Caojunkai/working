@@ -29,6 +29,8 @@
 
     <media destination="com_production" folder="media">
         <filename>index.html</filename>
+        <folder>css</folder>
+        <folder>js</folder>
     </media>
 
     <administration>
