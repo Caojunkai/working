@@ -1,9 +1,0 @@
-jQuery(document).ready(function($){
-    $("#iframepage").attr("height",$(".component").height());
-    $(".but-1").bind("click",function(){
-        $("#iframepage").attr("src","http://www.baidu.com");
-    });
-    $(".but-2").bind("click",function(){
-        $("#iframepage").attr("src","http://www.weibo.com");
-    });
-});
