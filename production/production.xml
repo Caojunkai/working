@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.2.0" method="upgrade">
+
+    <name>COM_PRODUCTION</name>
+    <!-- The following elements are optional and free of formatting constraints -->
+    <creationDate>February 2015</creationDate>
+    <author>laratrvel</author>
+    <authorEmail>john.doe@example.org</authorEmail>
+    <authorUrl>http://www.example.org</authorUrl>
+    <copyright>Copyright Info</copyright>
+    <license>License Info</license>
+    <!--  The version string is recorded in the components table -->
+    <version>v1.0</version>
+    <!-- The description is optional and defaults to the name -->
+    <description>COM_PRODUCTION_DESCRIPTION</description>
+
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+
+
+    <media destination="com_production" folder="media">
+        <filename>index.html</filename>
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>img</folder>
+    </media>
+
+    <administration>
+        <files folder="admin">
+            <!-- Admin Main File Copy Section -->
+            <filename>index.html</filename>        
+            <folder>sql</folder>
+        </files>
+    </administration>
+    <files folder="site">
+        <!-- Admin Main File Copy Section -->
+        <filename>index.html</filename>
+
+        <filename>production.php</filename>
+        <filename>controller.php</filename>
+        <!-- tables files section -->
+        <folder>tables</folder>
+        <!-- models files section -->
+        <folder>models</folder>
+        <!-- views files section -->
+        <folder>views</folder>
+        <!-- controllers files section -->
+        <folder>controllers</folder>
+
+    </files>
+
+</extension>
