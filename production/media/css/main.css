@@ -109,12 +109,6 @@ iframe{
 .pro-detail span:last-child{
     margin-bottom: 6px;
 }
-.pro-detail .pro-sp a{
-    text-decoration: none;
-}
-.pro-detail li{
-    list-style: none;
-}
 .pro-but-page-next{
     margin-top: 6px;
     background: #F04E10;
