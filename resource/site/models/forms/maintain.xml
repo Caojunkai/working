@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldt>
+		<field
+			id="person_name"
+			name="person_name"
+			type="text"
+			label="COM_WELDER_SEQUENCE_LABLE"
+			description="COM_WORKSHOP_SEQUENCE_DESC"
+			size="30"
+			maxlength="24"
+			required="true" />
+
+			<field
+			id="oper_time"
+			name="oper_time"
+			type="text"
+			label="COM_WELDER_CODING_LABLE"
+			description="COM_WELDER_CODING_DESC"
+			size="30"
+			maxlength="24"
+			required="true" />
+
+			<field
+			id="limit_time"
+			name="limit_time"
+			type="text"
+			label="COM_WELDER_MODEL_LABLE"
+			description="COM_WELDER_MODEL_DESC"
+			size="30"
+			maxlength="24"
+			required="true" />
+
+			<field
+			id="oper_name"
+			name="oper_name"
+			type="textarea"
+			label="COM_WELDER_POSITION_LABLE"
+			description="COM_WELDER_POSITION_DESC"
+			size="30"
+			maxlength="24"
+			required="true" />
+		
+	</fieldt>
+</form>

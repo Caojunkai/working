@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field
+                name="search"
+                type="text"
+                label="COM_CONTENT_FILTER_SEARCH_DESC"
+                hint="JSEARCH_FILTER"
+        />
+
+        <field
+                name="standard"
+                type="sql"
+                query="SELECT `standard`  FROM #__resource_gas GROUP BY `standard`"
+                key_field="standard"
+                value_field="standard"
+                onchange="this.form.submit();"
+        >
+            <option value="">规格搜索</option>
+        </field>
+        <field
+                name="name"
+                type="sql"
+                query="SELECT `name`  FROM #__resource_gas GROUP BY `name`"
+                key_field="name"
+                value_field="name"
+                onchange="this.form.submit();"
+        >
+            <option value="">名称搜索</option>
+        </field>
+    </fields>
+    <fields name="list">
+        <field
+                name="fullordering"
+                type="list"
+                label="COM_CONTENT_LIST_FULL_ORDERING"
+                description="COM_CONTENT_LIST_FULL_ORDERING_DESC"
+                onchange="this.form.submit();"
+
+        >
+            <option value="">默认排序</option>
+            <option value="a.name ASC">名称位置正序</option>
+            <option value="a.name DESC">焊接位置倒序</option>
+            <option value="a.num ASC">编号正序</option>
+            <option value="a.num DESC">编号倒序</option>
+        </field>
+        <field
+                name="limit"
+                type="limitbox"
+                class="inputbox input-mini"
+                default="25"
+                label="COM_CONTENT_LIST_LIMIT"
+                description="COM_CONTENT_LIST_LIMIT_DESC"
+                onchange="this.form.submit();"
+        />
+    </fields>
+</form>

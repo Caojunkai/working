@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="车间管理" option="COM_CONTENT_CATEGORIES_VIEW_DEFAULT_OPTION">
+		<help
+			key = "JHELP_MENUS_MENU_ITEM_ARTICLE_CATEGORIES"
+		/>
+		<message>
+			<![CDATA[车间管理列表]]>
+		</message>
+	</layout>
+
+	
+</metadata>
