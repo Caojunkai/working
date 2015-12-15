@@ -79,25 +79,26 @@ jQuery(document).ready(function() {
 						<th width="1%" class="nowrap center">
 								<?php echo JHtml::_('grid.checkall'); ?>
 						</th>
-						
+
+						<th width="1%" class="center nowrap hidden-phone">
+							<?php echo JText::_("序列号"); ?>
+						</th>
+
 						<th width="10%" style="min-width:55px" class="nowrap center">
 							<?php echo JHtml::_('searchtools.sort', '文件名称', 'a.name', $listDirn, $listOrder); ?>
 						</th>
 			
-						<th width="12%" class="nowrap hidden-phone">
+						<th width="12%" class="center nowrap hidden-phone">
 							<?php  echo JHtml::_('searchtools.sort',  '焊接位置', 'a.group', $listDirn, $listOrder); ?>
 						</th>
 					
-						<th width="12%" class="nowrap hidden-phone">
+						<th width="12%" class="center nowrap hidden-phone">
 							<?php echo JHtml::_('searchtools.sort', '焊接参数', 'a.work_start', $listDirn, $listOrder); ?>
 						</th>
-						<th width="12%" class="nowrap hidden-phone">
+						<th width="12%" class="center nowrap hidden-phone">
 							<?php echo JHtml::_('searchtools.sort', '板材参数', 'a.site', $listDirn, $listOrder); ?>
 						</th>
 
-						<th width="1%" class="nowrap hidden-phone">
-							<?php echo JHtml::_('searchtools.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
-						</th>
 					</tr>
 				</thead>
 				<tfoot>
@@ -114,27 +115,27 @@ jQuery(document).ready(function() {
 						<td class="center">
 							<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 						</td>
-						
+
+						<td class="center hidden-phone">
+							<?php echo $this->pagination->getRowOffset($i); ?>
+						</td>
+
 						<td class="center">
 							<a href="<?php echo JRoute::_('index.php?option=com_resource&view=tech&layout=edit&id='.(int) $item->id);?>"><?php echo $this->escape($item->name); ?></a>
 						</td>
 				
-						<td>
+						<td class="center">
 							<?php echo $this->escape($item->site); ?>
 						</td>
 					
-						<td class="hidden-phone">
+						<td class="center hidden-phone">
 							<?php echo $this->escape($item->weld_arg); ?>
 						</td>
 						
-						<td>
+						<td class="center">
 							<?php echo $this->escape($item->board_arg);?>
 						</td>
-					
-						<td class="center hidden-phone">
-							<?php  echo (int) $item->id; ?>
-						</td>
-						
+
 					</tr>
 					<?php endforeach; ?>
 				</tbody>

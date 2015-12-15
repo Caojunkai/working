@@ -50,7 +50,7 @@ jQuery(document).ready(function() {
 
 ?>
 
-<form action="<?php echo JRoute::_('index.php?option=com_resource&view=welders'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_resource&view=workshops'); ?>" method="post" name="adminForm" id="adminForm">
 <div class="control-group">
 			<div class="controls">
 				<a href="<?php echo JRoute::_('index.php?option=com_resource&view=workshop&layout=edit', false);?>"><button type="button" class=" btn btn-small btn-success"><span class="icon-new icon-white"></span>新建</button></a>
@@ -77,25 +77,23 @@ jQuery(document).ready(function() {
 						<th width="1%" class="nowrap center">
 								<?php echo JHtml::_('grid.checkall'); ?>
 						</th>
-						
-						<th width="12%" class="nowrap hidden-phone">
+						<th width="1%" class="nowrap hidden-phone">
+							<?php echo JText::_("序列号"); ?>
+						</th>
+						<th width="12%" class="center nowrap hidden-phone">
 							<?php  echo JHtml::_('searchtools.sort',  '车间名称', 'a.name', $listDirn, $listOrder); ?>
 						</th>
 						
-						<th width="10%" style="min-width:55px" class="nowrap center">
-							<?php echo JHtml::_('searchtools.sort', '车间编码', 'a.coding', $listDirn, $listOrder); ?>
+						<th width="10%" style="min-width:55px" class="center nowrap center">
+							<?php echo JHtml::_('searchtools.sort', '车间编号', 'a.num', $listDirn, $listOrder); ?>
 						</th>
 
-						<th width="12%" class="nowrap hidden-phone">
+						<th width="12%" class="center nowrap hidden-phone">
 							<?php echo JHtml::_('searchtools.sort', '使用日期', 'a.date', $listDirn, $listOrder); ?>
 						</th>
 						
-						<th width="12%" class="nowrap hidden-phone">
+						<th width="12%" class="center nowrap hidden-phone">
 							<?php echo JHtml::_('searchtools.sort', '备注信息', 'a.remark', $listDirn, $listOrder); ?>
-						</th>
-						
-						<th width="1%" class="nowrap hidden-phone">
-							<?php echo JHtml::_('searchtools.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
 						</th>
 					</tr>
 				</thead>
@@ -108,32 +106,30 @@ jQuery(document).ready(function() {
 				<tbody>
 				<?php foreach ($this->items as $i => $item) :?>
 					<tr class="row<?php echo $i % 2; ?>" >
-						
-					
+
+
 						<td class="center">
 							<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 						</td>
-						
+						<td class="center hidden-phone">
+							<?php echo $this->pagination->getRowOffset($i); ?>
+						</td>
 						<td class="center">
 							<a href="<?php echo JRoute::_('index.php?option=com_resource&view=workshop&layout=edit&id='.(int) $item->id);?>"><?php echo $this->escape($item->name); ?></a>
 						</td>
 				
-						<td>
-							<?php echo $this->escape($item->coding); ?>
-						</td>
-					
-						<td class="hidden-phone">
-							<?php echo JHtml::_('date', $item->date, JText::_('DATE_FORMAT_LC4')); ?>
-						</td>
-						
-						<td>
-							<?php echo $this->escape($item->remark);?>
+						<td class="center">
+							<?php echo $this->escape($item->num); ?>
 						</td>
 					
 						<td class="center hidden-phone">
-							<?php  echo (int) $item->id; ?>
+							<?php echo JHtml::_('date', $item->date, JText::_('DATE_FORMAT_LC4')); ?>
 						</td>
 						
+						<td class="center">
+							<?php echo $this->escape($item->remark);?>
+						</td>
+
 					</tr>
 					<?php endforeach; ?>
 				</tbody>

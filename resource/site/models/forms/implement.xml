@@ -7,9 +7,9 @@
 		
 	<field name="machine_id" type="sql" 
 	label="设备编号" 
-	query="SELECT id, coding FROM #__resource_machine" 
+	query="SELECT id, num FROM #__resource_machine"
 	key_field="id" 
-	value_field="coding" />
+	value_field="num" />
 	
 	<field name="welder_id" type="sql" 
 	label="实施人" 
@@ -17,7 +17,6 @@
 	key_field="id" 
 	value_field="name" />
 
-	
 	<field
 			name="oper_time"
 			type="calendar"

@@ -48,8 +48,6 @@ class ResourceControllerMachine extends JControllerForm
 	
 	public function implement()
 	{
-		
-		
 		$data = $this->input->post->get('jform', array(), 'array');
 		$model = $this->getModel('machines');
 		$ret = $model->saveImplement($data);

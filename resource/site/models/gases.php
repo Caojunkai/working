@@ -133,7 +133,6 @@ class ResourceModelGases extends JModelList
 			$query->where('a.num = ' . $db->quote($num));
 		}
 
-
 		if ($brand = $this->getState('filter.brand'))
 		{
 			$query->where('a.brand = ' . $db->quote($brand));
@@ -156,9 +155,12 @@ class ResourceModelGases extends JModelList
 			else
 			{
 				$search = $db->quote('%' . str_replace(' ', '%', $db->escape(trim($search), true) . '%'));
-				$query->where('(a.num LIKE ' . $search . ')');
+				$query->where('(a.standard LIKE ' . $search . ')');
 			}
 		}
+		$orderCol	= $this->state->get('list.ordering', 'name');
+		$orderDirn 	= $this->state->get('list.direction', 'asc');
+		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
 		return $query;
 
 	}

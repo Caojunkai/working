@@ -34,6 +34,9 @@ class ResourceModelTechs extends JModelList
 				'id', 'a.id',
 				'num', 'a.num',
 				'site', 'a.site',
+				'group','a.group',
+				'work_start','a.work_start',
+
 			);
 
 			if (JLanguageAssociations::isEnabled())
@@ -160,6 +163,9 @@ class ResourceModelTechs extends JModelList
 				$query->where('(a.name LIKE ' . $search . ')');
 			}
 		}
+		$orderCol	= $this->state->get('list.ordering', 'id');
+		$orderDirn 	= $this->state->get('list.direction', 'asc');
+		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
 
 		return $query;
 		

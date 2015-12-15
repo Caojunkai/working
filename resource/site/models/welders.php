@@ -190,6 +190,9 @@ class ResourceModelWelders extends JModelList
 
 // var_dump($query->__toString());die;
 
+		$orderCol	= $this->state->get('list.ordering', 'name');
+		$orderDirn 	= $this->state->get('list.direction', 'asc');
+		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
 		return $query;
 		
 	}

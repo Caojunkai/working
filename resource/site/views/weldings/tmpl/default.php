@@ -80,10 +80,13 @@ jQuery(document).ready(function() {
 					<?php echo JHtml::_('grid.checkall'); ?>
 				</th>
 				<th width="5%" class="nowrap hidden-phone">
-					<?php echo JHtml::_('searchtools.sort', '序列号', 'a.id', $listDirn, $listOrder); ?>
+					<?php echo JText::_("序列号"); ?>
 				</th>
 				<th width="19%" style="min-width:55px" class="nowrap center">
 					<?php echo JHtml::_('searchtools.sort', '名称', 'a.name', $listDirn, $listOrder); ?>
+				</th>
+				<th width="18%" style="min-width:55px" class="nowrap center">
+					<?php echo JHtml::_('searchtools.sort', '编号', 'a.num', $listDirn, $listOrder); ?>
 				</th>
 
 				<th width="19%" style="min-width:55px" class="nowrap center">
@@ -96,9 +99,7 @@ jQuery(document).ready(function() {
 				<th width="19%" style="min-width:55px" class="nowrap center">
 					<?php echo JHtml::_('searchtools.sort', '密度', 'a.density', $listDirn, $listOrder); ?>
 				</th>
-				<th width="18%" style="min-width:55px" class="nowrap center">
-					<?php echo JHtml::_('searchtools.sort', '编号', 'a.num', $listDirn, $listOrder); ?>
-				</th>
+
 
 			</tr>
 			</thead>
@@ -117,8 +118,8 @@ jQuery(document).ready(function() {
 						<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 					</td>
 
-					<td class="center">
-						<?php echo $this->escape($item->id); ?>
+					<td class="center hidden-phone">
+						<?php echo $this->pagination->getRowOffset($i); ?>
 					</td>
 					<td class="center">
 						<a href="<?php echo JRoute::_('index.php?option=com_resource&view=welding&layout=edit&id='.(int) $item->id);?>"><?php echo $this->escape($item->name); ?></a>
@@ -130,6 +131,9 @@ jQuery(document).ready(function() {
 					</td>
 
 					<td class="center">
+						<?php echo $this->escape($item->num);?>
+					</td>
+					<td class="center">
 						<?php echo $this->escape($item->brand); ?>
 					</td>
 
@@ -139,9 +143,7 @@ jQuery(document).ready(function() {
 					<td class="center">
 						<?php echo $this->escape($item->density);?>
 					</td>
-					<td class="center">
-						<?php echo $this->escape($item->num);?>
-					</td>
+
 
 				</tr>
 			<?php endforeach; ?>

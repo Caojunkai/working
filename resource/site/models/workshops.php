@@ -32,8 +32,9 @@ class ResourceModelWorkshops extends JModelList
 		{
 			$config['filter_fields'] = array(
 				'id', 'a.id',
-				'coding', 'a.coding',
+				'num', 'a.num',
 				'remark', 'a.remark',
+				'date','a.date'
 			);
 
 			if (JLanguageAssociations::isEnabled())
@@ -69,8 +70,8 @@ class ResourceModelWorkshops extends JModelList
 		$search = $this->getUserStateFromRequest($this->context . '.filter.search', 'filter_search');
 		$this->setState('filter.search', $search);
 
-		$access = $this->getUserStateFromRequest($this->context . '.filter.coding', 'filter_coding');
-		$this->setState('filter.coding', $access);
+		$access = $this->getUserStateFromRequest($this->context . '.filter.num', 'filter_num');
+		$this->setState('filter.num', $access);
 
 		$authorId = $app->getUserStateFromRequest($this->context . '.filter.remark', 'filter_remark');
 		$this->setState('filter.remark', $authorId);
@@ -97,7 +98,7 @@ class ResourceModelWorkshops extends JModelList
 	{
 		// Compile the store id.
 		$id .= ':' . $this->getState('filter.search');
-		$id .= ':' . $this->getState('filter.coding');
+		$id .= ':' . $this->getState('filter.num');
 		$id .= ':' . $this->getState('filter.remark');
 
 		return parent::getStoreId($id);
@@ -121,7 +122,7 @@ class ResourceModelWorkshops extends JModelList
 		// Select the required fields from the table.
 		$query->select(
 			$this->getState('list.select',
-				'a.id, a.coding, a.name' .
+				'a.id, a.num, a.name' .
 					', a.remark,a.date'
 			)
 		);
@@ -129,9 +130,9 @@ class ResourceModelWorkshops extends JModelList
 		
 	
 	
-		if ($coding = $this->getState('filter.coding'))
+		if ($num = $this->getState('filter.num'))
 		{
-			$query->where('a.coding = ' . $db->quote($coding));
+			$query->where('a.num = ' . $db->quote($num));
 		}
 		
 		if ($remark = $this->getState('filter.remark'))
@@ -158,6 +159,10 @@ class ResourceModelWorkshops extends JModelList
 				$query->where('(a.name LIKE ' . $search . ')');
 			}
 		}
+
+		$orderCol	= $this->state->get('list.ordering', 'name');
+		$orderDirn 	= $this->state->get('list.direction', 'asc');
+		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
 		return $query;
 		
 	}

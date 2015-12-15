@@ -26,11 +26,11 @@ class ResourceModelMachine extends JModelForm
 		$query = $db->getQuery(true);
 		
 		$query
-			->select('*')
-			->from($db->quoteName('#__resource_machine'))
-			->where($db->quoteName('id').'='.$id);
+			->select('a.*,COUNT(a.id) as times')
+			->from($db->quoteName('#__resource_machine','a'))
+			->join('INNER',$db->quoteName('#__resource_maintain','b').'ON ('.$db->quoteName('a.id').'='.$db->quoteName('b.machine_id').')')
+			->group('a.id');
 		
-		//var_dump($query->__tostring());die;
 		$db->setQuery($query);
 		try {
 			$results = $db->loadObject();
@@ -85,19 +85,14 @@ class ResourceModelMachine extends JModelForm
 		//var_dump($data);die;
 		$profile = new stdClass();
 		$profile->id = $data['id'];
-		$profile->sequence = $data['sequence'];
-		$profile->coding= $data['coding'];
+		$profile->num= $data['num'];
 		$profile->model=$data['model'];
 		$profile->position = $data['position'];
-		$profile->pic= $data['pic'];
-		$profile->usetime=$data['usetime'];
-		$profile->hanjietime = $data['hanjietime'];
-		$profile->baoyantime= $data['baoyantime'];
-		$profile->records=$data['records'];
-		$profile->times = $data['times'];
-		$profile->workshopid= $data['workshopid'];
-		$profile->guzhang = $data['guzhang'];
-	
+		$profile->response_person= $data['response_person'];
+		$profile->use_time=$data['use_time'];
+		$profile->weld_time = $data['weld_time'];
+		$profile->workshop_id= $data['workshop_id'];
+
 		try {
 			$db = JFactory::getDbo();
 			$db->transactionStart();
@@ -119,18 +114,14 @@ class ResourceModelMachine extends JModelForm
 		$query = $db->getQuery(true);
 	
 		$profile = new stdClass();
-		$profile->sequence = $data['sequence'];
-		$profile->coding= $data['coding'];
+		$profile->id = $data['id'];
+		$profile->num= $data['num'];
 		$profile->model=$data['model'];
 		$profile->position = $data['position'];
-		$profile->pic= $data['pic'];
-		$profile->usetime=$data['usetime'];
-		$profile->hanjietime = $data['hanjietime'];
-		$profile->baoyantime= $data['baoyantime'];
-		$profile->records=$data['records'];
-		$profile->times = $data['times'];
-		$profile->workshopid= $data['workshopid'];
-		$profile->guzhang = $data['guzhang'];
+		$profile->response_person= $data['response_person'];
+		$profile->use_time=$data['use_time'];
+		$profile->weld_time = $data['weld_time'];
+		$profile->workshop_id= $data['workshop_id'];
 		try{
 
 			$db->transactionStart();

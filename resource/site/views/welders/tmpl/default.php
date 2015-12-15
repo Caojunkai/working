@@ -77,7 +77,10 @@ jQuery(document).ready(function() {
 						<th width="1%" class="nowrap center">
 								<?php echo JHtml::_('grid.checkall'); ?>
 						</th>
-						
+						<th width="1%" class="center nowrap hidden-phone">
+							<?php echo JText::_("序列号"); ?>
+						</th>
+
 						<th width="10%" style="min-width:55px" class="nowrap center">
 							<?php echo JHtml::_('searchtools.sort', '焊工姓名', 'a.name', $listDirn, $listOrder); ?>
 						</th>
@@ -93,9 +96,7 @@ jQuery(document).ready(function() {
 							<?php echo JHtml::_('searchtools.sort', '岗位', 'a.site', $listDirn, $listOrder); ?>
 						</th>
 
-						<th width="1%" class="nowrap hidden-phone">
-							<?php echo JHtml::_('searchtools.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
-						</th>
+
 					</tr>
 				</thead>
 				<tfoot>
@@ -112,7 +113,9 @@ jQuery(document).ready(function() {
 						<td class="center">
 							<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 						</td>
-						
+						<td class="center hidden-phone">
+							<?php echo $this->pagination->getRowOffset($i); ?>
+						</td>
 						<td class="center">
 							<a href="<?php echo JRoute::_('index.php?option=com_resource&view=welder&layout=edit&id='.(int) $item->id);?>"><?php echo $this->escape($item->name); ?></a>
 						</td>
@@ -129,9 +132,7 @@ jQuery(document).ready(function() {
 							<?php echo $this->escape($item->site);?>
 						</td>
 					
-						<td class="center hidden-phone">
-							<?php  echo (int) $item->id; ?>
-						</td>
+
 						
 					</tr>
 					<?php endforeach; ?>

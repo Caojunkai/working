@@ -9,14 +9,14 @@
         />
 
         <field
-                name="standard"
+                name="model"
                 type="sql"
-                query="SELECT `standard`  FROM #__resource_gas GROUP BY `standard`"
-                key_field="standard"
-                value_field="standard"
+                query="SELECT `model`  FROM #__resource_machine GROUP BY `model`"
+                key_field="model"
+                value_field="model"
                 onchange="this.form.submit();"
         >
-            <option value="">规格搜索</option>
+            <option value="">型号搜索</option>
         </field>
     </fields>
     <fields name="list">
@@ -29,16 +29,16 @@
 
         >
             <option value="">默认排序</option>
-            <option value="a.name ASC">名称位置正序</option>
-            <option value="a.name DESC">焊接位置倒序</option>
-            <option value="a.num ASC">编号正序</option>
-            <option value="a.num DESC">编号倒序</option>
+            <option value="a.num ASC">焊机编号正序</option>
+            <option value="a.num DESC">焊机编号倒序</option>
+            <option value="a.use_time ASC">使用日期正序</option>
+            <option value="a.use_time DESC">使用日期倒序</option>
         </field>
         <field
                 name="limit"
                 type="limitbox"
                 class="inputbox input-mini"
-                default="25"
+                default="5"
                 label="COM_CONTENT_LIST_LIMIT"
                 description="COM_CONTENT_LIST_LIMIT_DESC"
                 onchange="this.form.submit();"
