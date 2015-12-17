@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.2.0" method="upgrade">
+
+	<name>COM_RESOURCE</name>
+	<!-- The following elements are optional and free of formatting constraints -->
+	<creationDate>February 2015</creationDate>
+	<author>John Doe</author>
+	<authorEmail>john.doe@example.org</authorEmail>
+	<authorUrl>http://www.example.org</authorUrl>
+	<copyright>Copyright Info</copyright>
+	<license>License Info</license>
+	<!--  The version string is recorded in the components table -->
+	<version>0.0.15</version>
+	<!-- The description is optional and defaults to the name -->
+	<description>COM_RESOURCE_DESCRIPTION</description>
+
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	
+
+
+	<media destination="com_resource" folder="media">
+		<filename>index.html</filename>
+	</media>
+	<languages folder="site/language">
+		<language tag="zh-CN">zh-CN/zh-CN.com_resource.ini</language>
+	</languages>
+	<administration>
+		<files folder="admin">
+			<!-- Admin Main File Copy Section -->
+			<filename>index.html</filename>
+			<filename>config.xml</filename>
+			<filename>access.xml</filename>
+			<folder>sql</folder>
+		</files>
+	</administration>
+	<files folder="site">
+		<!-- Admin Main File Copy Section -->
+		<filename>index.html</filename>
+		<filename>metadata.xml</filename>
+		
+		<filename>resource.php</filename>
+		<filename>controller.php</filename>
+		<!-- tables files section -->
+		<folder>tables</folder>
+		<!-- models files section -->
+		<folder>models</folder>
+		<!-- views files section -->
+		<folder>views</folder>
+		<!-- controllers files section -->
+		<folder>controllers</folder>
+	
+	</files>
+
+</extension>

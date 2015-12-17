@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+	<field
+			name="id"
+			type="hidden"
+	/>
+	<field name="welder_id"
+		   type="sql"
+		   label="实施人"
+			query="SELECT id, name FROM #__weldresource_welder"
+			key_field="id"
+			value_field="name"
+			required="true"
+	/>
+
+	<field
+			name="oper_time"
+			type="calendar"
+			label="实施日期"
+			description=""
+			size="30"
+			maxlength="24"
+			required="true" />
+			
+	<field
+			name="limit_time"
+			type="calendar"
+			label="下次保养期限"
+			description=""
+			size="30"
+			maxlength="24"
+			required="true" />
+			
+	<field
+			name="oper_name"
+			type="textarea"
+			label="实施项目"
+			description=""
+			rows="5" 
+			cols="5"
+	/>
+	</fieldset>
+</form>
